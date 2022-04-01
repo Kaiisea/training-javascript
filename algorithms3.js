@@ -39,15 +39,34 @@ const exercise2 = () => {
     console.log(`¡Se ha roto el espacio-tiempo, corre por tu vida!`);
   }
 };
-*//*
+*/
 //Ex 3. Hello World de colorinchis
-//const exercise3 = () => {
-let charHex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
-let code = "#", i;
-//ese code tiene bucle de 6 numeros, necesita otro bucle que genere el n de letras+num del hex
-for (i = 0, code; i < 6; i++) {
-  code += Math.floor(Math.random() * charHex.length);
+const exercise3 = () => {
+const generateColor = () => {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+for (let i = 1; i <= 10; i++) {
+  console.log("%cHello World!", `color: ${generateColor()}`);
+} 
+};
+/*
+//Validar DNI
+//const exercise4 = () => {
+let dniFull = prompt("Introduzca su DNI");
+let dniNumbers = dniFull.substring(0, 8);
+let dniLetter = dniFull.substring(8, 9);
+let remainder = dniNumbers % 23;
+let letters = "TRWAGMYFPDXBNJZSQVHLCKET";
+letters = letters.substring(remainder, remainder + 1);
+if (letters != dniLetter.toUpperCase()) {
+  console.log("The data entered is wrong");
+} else {
+  console.log("Valid DNI");
 }
-console.log(code);
 //};
 */
