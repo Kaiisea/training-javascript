@@ -137,131 +137,128 @@ console.log(even)
 suits = ["treboles", "corazones", "picas", "diamantes"];
 cards = ["As", "Rey", "Reina", "Sota", 10, 9, 8, 7, 6, 5, 4, 3, 2];
 let initialBalance = 500;
-for (l = 0; l < 1; l++) {
-  //for base
-  if (initialBalance > 0) {
-    let bet = prompt(
+do
+{ //do base
+  let bet = parseInt(
+    prompt(
       `Usted dispone de un saldo de ${initialBalance}€, ¿cuanto quiere apostar?`
-    );
-    for (let i = 0; i < 1; i++) {
-      // for pedir dinero
-      if (bet > initialBalance) {
-        bet = prompt(
-          `Usted no dispone de tanto saldo, actualmente solo cuenta con ${initialBalance}€, ¿cuanto quiere apostar?`
-        );
-        i--;
-      } else if (bet == initialBalance) {
-        alert(
-          `Ha decidido hacer un all-in de ${bet}€, se va a poner interesante esta ronda`
-        );
-      } else if (bet < initialBalance) {
-        alert(
-          `Ha decidido apostar ${bet}€, esperemos que tenga suerte con las cartas`
-        );
+    )
+  );
+  for (let i = 0; i < 1; i++) {
+    // for pedir dinero
+    if (bet > initialBalance) {
+      bet = prompt(
+        `Usted no dispone de tanto saldo, actualmente solo cuenta con ${initialBalance}€, ¿cuanto quiere apostar?`
+      );
+      i--;
+    } else if (bet == initialBalance) {
+      alert(
+        `Ha decidido hacer un all-in de ${bet}€, se va a poner interesante esta ronda`
+      );
+    } else if (bet < initialBalance) {
+      alert(
+        `Ha decidido apostar ${bet}€, esperemos que tenga suerte con las cartas`
+      );
+    } else {
+      bet = prompt(
+        `Esa apuesta es inválida, recuerde escribir solo el número sin simbolos. Le recuerdo que dispone de ${initialBalance}€ de saldo, ¿cuanto quiere apostar?`
+      );
+      i--;
+    }
+  }
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando");
+  }, 500);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando.");
+  }, 2000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando..");
+  }, 3000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando...");
+  }, 4000);
+  setTimeout(() => {
+    console.clear();
+    userCard = cards[Math.floor(Math.random() * cards.length)];
+    userSuit = suits[Math.floor(Math.random() * suits.length)];
+    console.log(`Usted ha sacado un ${userCard} de ${userSuit}`);
+    console.log("A ver cuanta suerte tiene la maquina");
+  }, 5000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando");
+  }, 8000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando.");
+  }, 9000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando..");
+  }, 10000);
+  setTimeout(() => {
+    console.clear();
+    console.log("Barajando...");
+  }, 11000);
+  setTimeout(() => {
+    console.clear();
+    cpuCard = cards[Math.floor(Math.random() * cards.length)];
+    cpuSuit = suits[Math.floor(Math.random() * suits.length)];
+    for (j = 0; j < 1; j++) {
+      if (cpuCard == userCard && cpuSuit == userSuit) {
+        cpuCard = cards[Math.floor(Math.random() * cards.length)];
+        cpuSuit = suits[Math.floor(Math.random() * suits.length)];
+        j--;
       } else {
-        bet = prompt(
-          `Esa apuesta es inválida, recuerde escribir solo el número sin simbolos. Le recuerdo que dispone de ${initialBalance}€ de saldo, ¿cuanto quiere apostar?`
-        );
-        i--;
+        j++;
       }
     }
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando");
-    }, 500);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando.");
-    }, 2000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando..");
-    }, 3000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando...");
-    }, 4000);
-    setTimeout(() => {
-      console.clear();
-      userCard = cards[Math.floor(Math.random() * cards.length)];
-      userSuit = suits[Math.floor(Math.random() * suits.length)];
-      console.log(`Usted ha sacado un ${userCard} de ${userSuit}`);
-      console.log("A ver cuanta suerte tiene la maquina");
-    }, 5000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando");
-    }, 8000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando.");
-    }, 9000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando..");
-    }, 10000);
-    setTimeout(() => {
-      console.clear();
-      console.log("Barajando...");
-    }, 11000);
-    setTimeout(() => {
-      console.clear();
-      cpuCard = cards[Math.floor(Math.random() * cards.length)];
-      cpuSuit = suits[Math.floor(Math.random() * suits.length)];
-      for (j = 0; j < 1; j++) {
-        if (cpuCard == userCard && cpuSuit == userSuit) {
-          cpuCard = cards[Math.floor(Math.random() * cards.length)];
-          cpuSuit = suits[Math.floor(Math.random() * suits.length)];
-          j--;
-        } else {
-          j++;
-        }
-      }
-      console.log(`Usted ha sacado un ${userCard} de ${userSuit}`);
-      console.log(`La maquina ha sacado un ${cpuCard} de ${cpuSuit}`);
-      if (userCard == "Sota") {
-        userCard = 11;
-      } else if (cpuCard == "Sota") {
-        cpuCard = 11;
-      } else if (cpuCard == "Reina") {
-        cpuCard = 12;
-      } else if (userCard == "Reina") {
-        userCard = 12;
-      } else if (userCard == "Rey") {
-        userCard = 13;
-      } else if (cpuCard == "Rey") {
-        cpuCard = 13;
-      } else if (cpuCard == "As") {
-        cpuCard = 14;
-      } else if (userCard == "As") {
-        userCard = 14;
-      }
-      if (userCard > cpuCard) {
-        console.log(
-          `¡Felicidades, ha ganado a la máquina! ¡Se han añadido ${bet}€ extras a su saldo!`
-        );
-        initialBalance = initialBalance + bet;
-        console.log(`Su saldo actual es de ${initialBalance}€`);
-      } else if (userCard < cpuCard) {
-        console.log(
-          `¡Que mala suerte, ha perdido esta ronda contra la máquina! ¡Ha perdido ${bet}€ de su saldo!`
-        );
-        initialBalance = initialBalance - bet;
-        console.log(`Su saldo actual es de ${initialBalance}€`);
-      } else if ((userCard == cpuCard)) {
-        console.log(
-          `¡Ha sido un empate! ¡No ha ganado nada pero se le ha devuelto sus ${bet}€ a su saldo!`
-        );
-        console.log(`Su saldo actual es de ${initialBalance}€`);
-      }
-    }, 12000);
-    setTimeout(() => {
-      l--
-    }, 14000);
-  } else if ((initialBalance == 0)) {
-    alert(
-      `!Oh no! Su saldo actual es de ${initialBalance}€ !Ha perdido todo su dinero! ¡Parece que la suerte no le ha sonreido! Haga un nuevo ingreso en paypal.com/Kaiisea para seguis jugando`
-    );
-    l++;
-  }
+    console.log(`Usted ha sacado un ${userCard} de ${userSuit}`);
+    console.log(`La maquina ha sacado un ${cpuCard} de ${cpuSuit}`);
+    if (userCard == "Sota") {
+      userCard = 11;
+    } else if (cpuCard == "Sota") {
+      cpuCard = 11;
+    } else if (cpuCard == "Reina") {
+      cpuCard = 12;
+    } else if (userCard == "Reina") {
+      userCard = 12;
+    } else if (userCard == "Rey") {
+      userCard = 13;
+    } else if (cpuCard == "Rey") {
+      cpuCard = 13;
+    } else if (cpuCard == "As") {
+      cpuCard = 14;
+    } else if (userCard == "As") {
+      userCard = 14;
+    }
+    if (userCard > cpuCard) {
+      console.log(
+        `¡Felicidades, ha ganado a la máquina! ¡Se han añadido ${bet}€ extras a su saldo!`
+      );
+      initialBalance = initialBalance + bet;
+      console.log(`Su saldo actual es de ${initialBalance}€`);
+    } else if (userCard < cpuCard) {
+      console.log(
+        `¡Que mala suerte, ha perdido esta ronda contra la máquina! ¡Ha perdido ${bet}€ de su saldo!`
+      );
+      initialBalance = initialBalance - bet;
+      console.log(`Su saldo actual es de ${initialBalance}€`);
+    } else if (userCard == cpuCard) {
+      console.log(
+        `¡Ha sido un empate! ¡No ha ganado nada pero se le ha devuelto sus ${bet}€ a su saldo!`
+      );
+      console.log(`Su saldo actual es de ${initialBalance}€`);
+    }
+  }, 12000);
+} while (initialBalance > 0);
+if (initialBalance == 0) {
+  alert(
+    `!Oh no! Su saldo actual es de ${initialBalance}€ !Ha perdido todo su dinero! ¡Parece que la suerte no le ha sonreido! Haga un nuevo ingreso en paypal.com/Kaiisea para seguis jugando`
+  );
 }
